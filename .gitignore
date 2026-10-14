@@ -1,0 +1,23 @@
+# Dependências e builds
+node_modules/
+dist/
+
+# Segredos e configuração local
+.env
+.env.*
+wp-config.php
+
+# Banco de dados e dumps
+*.sql
+*.sqlite
+*.db
+
+# Artefatos de teste (podem conter cookies ou dados pessoais)
+test-results/
+playwright-report/
+trace.zip
+
+# Sistema e editor
+.DS_Store
+Thumbs.db
+.vscode/
