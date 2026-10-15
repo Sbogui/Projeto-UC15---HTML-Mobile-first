@@ -57,9 +57,9 @@ publicada.
 
 ### T00 — Preparar repositório e fluxo de trabalho
 
-- [ ] Criar o repositório do produto com `README.md`, `.gitignore` e licença definida.
-- [ ] Registrar objetivo, público, três tarefas críticas e escopo que ficou de fora.
-- [ ] Trabalhar em branches por etapa e integrar por Pull Request revisável.
+- [x] Criar o repositório do produto com `README.md`, `.gitignore` e licença definida.
+- [x] Registrar objetivo, público, três tarefas críticas e escopo que ficou de fora.
+- [x] Trabalhar em branches por etapa e integrar por Pull Request revisável.
 - [ ] Manter commits pequenos, mensagens descritivas e `main` executável.
 - [ ] Documentar comandos para abrir, testar e gerar a entrega.
 
