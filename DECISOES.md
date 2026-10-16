@@ -44,3 +44,18 @@ Registro das decisões técnicas e de produto da Copa Senac Hackathon. Cada entr
 - **Por quê:** o azul e o laranja ficaram de fora para não imitar a identidade do Senac (README). As fontes do sistema dispensam arquivos externos, funcionam offline e não custam requisição. O `rem` acompanha a fonte configurada pela pessoa.
 - **Como verificar:** DevTools, seletor de cor de uma regra (mostra a razão de contraste), e troca de um token em `:root` para ver o efeito em toda a página.
 - **Fora:** modo escuro (previsto, se couber, depois do T04) e fontes externas.
+
+## D08 — Estados interativos e origem de uma regra
+
+| Estado | Regra | Sinal além da cor |
+|---|---|---|
+| Normal | `button` com fundo `--cor-primaria` e texto branco; alvo mínimo de 2,75rem | Tamanho do alvo |
+| Hover | `a:hover` e `button:not(:disabled):hover` | Sublinhado de 2px no link; botão mais escuro |
+| Foco | `:focus-visible` com anel de 3px e deslocamento de 2px | Anel contínuo |
+| Ativo | `button:not(:disabled):active` | O botão desce 1px (`transform`) |
+| Inválido | `input:user-invalid` | Borda de 3px (só depois da interação) |
+| Desabilitado | `button:disabled` e `input:disabled` | Cursor `not-allowed` e borda tracejada no campo |
+
+- **Origem de uma regra:** o anel de foco do cabeçalho. A regra base `:focus-visible` (especificidade 0,1,0) usa a cor primária, que some no cabeçalho violeta. A regra `header :focus-visible` (0,1,1) troca só a cor do anel para branco e vence pela especificidade, sem `!important`. No DevTools, a regra base aparece riscada.
+- **Por quê:** o foco nunca é removido, nenhuma informação depende só de hover, e `:user-invalid` evita pintar o formulário de erro antes da primeira tentativa.
+- **Limite conhecido:** o texto de uma mensagem de erro vem do balão do navegador e, no T07, da região `role="status"`. Por enquanto, o estado inválido só muda a aparência do campo.
