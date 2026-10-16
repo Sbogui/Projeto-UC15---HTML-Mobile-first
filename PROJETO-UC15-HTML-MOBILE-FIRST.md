@@ -60,7 +60,7 @@ publicada.
 - [x] Criar o repositório do produto com `README.md`, `.gitignore` e licença definida.
 - [x] Registrar objetivo, público, três tarefas críticas e escopo que ficou de fora.
 - [x] Trabalhar em branches por etapa e integrar por Pull Request revisável.
-- [ ] Manter commits pequenos, mensagens descritivas e `main` executável.
+- [x] Manter commits pequenos, mensagens descritivas e `main` executável.
 - [ ] Documentar comandos para abrir, testar e gerar a entrega.
 
 **Aceite:** clone limpo, instruções reproduzíveis e histórico que permite localizar cada
