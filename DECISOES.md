@@ -80,3 +80,18 @@ Registro das decisões técnicas e de produto da Copa Senac Hackathon. Cada entr
 - `::marker`: cor do marcador da lista do destaque. Não gera conteúdo.
 - `::selection`: legibilidade do texto selecionado, branco sobre `#4A32B0` (contraste 8,8).
 - **Regra comum:** nenhum pseudo-elemento usa `content`. Se não carregar, nada se perde.
+
+## D10 — Link de pular
+
+- **Decisão:** o primeiro elemento da página é `<a class="pular" href="#conteudo">`, uma barra fina, sempre visível, no fluxo, acima do cabeçalho. O texto usa a mesma margem lateral do cabeçalho (`max(1rem, calc((100% - 60rem) / 2))`) e fica alinhado ao título.
+- **Alternativas descartadas:** caixa flutuando sobre o cabeçalho, link escondido até receber foco e caixa solta no canto. A primeira cobria o título, a segunda deslocava a página no primeiro `Tab`, e a terceira ficava desalinhada do resto. A escolha final é do autor.
+- **Por quê:** o primeiro anel de foco era cortado pela borda da janela (o link estava no canto 0,0).
+- **Origem de uma regra:** `.pular:focus-visible` (0,2,0) vence a regra base `:focus-visible` (0,1,0) e muda só o `outline-offset` para `-3px`, que desenha o anel dentro da barra. Sem `!important`.
+
+## D11 — Tema escuro, roxo e amarelo (substitui a paleta do D07)
+
+- **Decisão:** tema escuro com roxo escuro no fundo (`#14101F`), no cabeçalho (`#2D1B69`) e nos cartões (`#1E1830`), e amarelo (`#FFC83D`) como cor de contraste para links, títulos `h2`, anel de foco, marcadores e botão. `color-scheme: dark` em `:root`.
+- **Contraste (fórmula da WCAG):** texto claro sobre o fundo 16,6 e sobre o cartão 15,2; texto suave sobre o cartão 8,8; amarelo sobre o fundo 12,1, sobre o cartão 11,1 e sobre o cabeçalho 9,2; texto escuro sobre o botão amarelo 12,1; borda de campo sobre o cartão 5,0; erro sobre o cartão 8,4. O mínimo é 4,5 para texto e 3 para bordas de campo.
+- **O que muda nas decisões anteriores:** a paleta violeta e verde do D07 deixa de valer (escala tipográfica, fontes do sistema e `rem` continuam). No D08, o anel de foco único em amarelo dispensa a regra `header :focus-visible` (o amarelo contrasta com o cabeçalho roxo), que foi removida. A origem de uma regra passa a ser a do D10.
+- **Por quê:** preferência do autor por um visual escuro, com o amarelo concentrando a atenção nas ações. O azul e o laranja continuam de fora para não imitar a identidade do Senac.
+- **Fora:** alternância entre tema claro e escuro (`prefers-color-scheme`) ou controle manual. Fica como possibilidade futura.
