@@ -102,7 +102,13 @@
 
     <section id="novidades" aria-labelledby="titulo-novidades">
       <h2 id="titulo-novidades">Receba novidades</h2>
-      <!-- Passo 5: formulário de e-mail. -->
+      <form id="form-novidades" action="#novidades" method="get">
+        <p id="ajuda-email">Use um endereço de e-mail que você consulta. Exemplo: nome@exemplo.com</p>
+        <label for="email-novidades">E-mail</label>
+        <input id="email-novidades" name="email" type="email" required autocomplete="email" aria-describedby="ajuda-email">
+        <button type="submit">Receber novidades</button>
+        <p id="status-novidades" role="status"></p>
+      </form>
     </section>
   </main>
 
