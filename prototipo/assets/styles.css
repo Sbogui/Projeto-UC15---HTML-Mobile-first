@@ -333,3 +333,123 @@ p {
 #noticias > article p {
   overflow-wrap: anywhere;
 }
+
+
+/* T05 — Responsividade orientada pelo conteúdo */
+
+/* Evita que padding e bordas aumentem inesperadamente as larguras */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Tipografia fluida: cresce com a tela, respeitando limites legíveis */
+:root {
+  --texto-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --texto-h1: clamp(1.75rem, 1.35rem + 2vw, 2.75rem);
+  --texto-h2: clamp(1.35rem, 1.15rem + 1vw, 1.75rem);
+  --texto-h3: clamp(1.125rem, 1.05rem + 0.5vw, 1.375rem);
+}
+
+/* Navegação: área de toque confortável e quebra natural */
+nav a {
+  display: inline-block;
+  padding: var(--espaco-2);
+  overflow-wrap: anywhere;
+}
+
+/* Componentes de notícia podem adaptar seu conteúdo à largura disponível */
+article {
+  container-type: inline-size;
+  container-name: noticia;
+  min-width: 0;
+}
+
+@container noticia (max-width: 22rem) {
+  article h3 {
+    font-size: 1.125rem;
+  }
+
+  article p {
+    font-size: 0.9375rem;
+  }
+}
+
+/* Conteúdo principal e áreas externas adaptam o espaçamento */
+main {
+  width: 100%;
+}
+
+header,
+footer {
+  padding-inline: max(
+    var(--espaco-3),
+    calc((100% - 60rem) / 2)
+  );
+}
+
+/* Breakpoint orientado pelo espaço necessário ao menu e ao conteúdo */
+@media (max-width: 40rem) {
+  header,
+  footer {
+    padding-block: var(--espaco-3);
+  }
+
+  main {
+    padding: var(--espaco-2);
+  }
+
+  main > section:first-of-type {
+    padding: var(--espaco-3);
+  }
+
+  article {
+    padding: var(--espaco-3);
+  }
+
+  nav ul {
+    gap: var(--espaco-1);
+  }
+
+  button {
+    max-width: 100%;
+    white-space: normal;
+  }
+}
+
+/* Em telas muito estreitas, prioriza leitura e evita títulos excessivos */
+@media (max-width: 22rem) {
+  h1 {
+    overflow-wrap: anywhere;
+  }
+
+  main > section:first-of-type ul {
+    padding-inline-start: 1.25rem;
+  }
+}
+
+/* Mantém os movimentos desnecessários desativados quando solicitado */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto;
+  }
+}
+
+/* Tabelas: preserva todas as colunas em telas estreitas */
+.tabela-responsiva {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+
+.tabela-responsiva table {
+  min-width: 34rem;
+}
+
+.tabela-responsiva th,
+.tabela-responsiva td {
+  overflow-wrap: anywhere;
+}
