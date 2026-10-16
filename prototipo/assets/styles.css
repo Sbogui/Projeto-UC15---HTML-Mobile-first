@@ -1,17 +1,23 @@
-/* Sistema CSS da Copa Senac Hackathon — tokens, base e componentes (T02) */
+/* Sistema CSS da Copa Senac Hackathon — tema escuro, roxo e amarelo (T02) */
 
 :root {
-  /* Cor (paleta B: violeta e verde) */
-  --cor-texto: #1A1A2E;
-  --cor-texto-suave: #4A4A63;
-  --cor-fundo: #F7F6FB;
-  --cor-superficie: #FFFFFF;
-  --cor-primaria: #5B3FD1;
-  --cor-primaria-escura: #4A32B0;
-  --cor-destaque: #0E7C5A;
-  --cor-borda: #D9D6E8;
-  --cor-borda-campo: #6B6885;
-  --cor-erro: #B3261E;
+  /* Faz os controles nativos (rolagem, campos) acompanharem o tema escuro */
+  color-scheme: dark;
+
+  /* Cor */
+  --cor-fundo: #14101F;
+  --cor-superficie: #1E1830;
+  --cor-superficie-alta: #272040;
+  --cor-cabecalho: #2D1B69;
+  --cor-barra: #0B0814;
+  --cor-primaria: #3D2A85;
+  --cor-texto: #F3F0FA;
+  --cor-texto-suave: #BDB6D6;
+  --cor-destaque: #FFC83D;
+  --cor-destaque-claro: #FFE08A;
+  --cor-borda: #3A3258;
+  --cor-borda-campo: #8E86B0;
+  --cor-erro: #FF9B93;
 
   /* Espaço (rem: acompanha a fonte do usuário) */
   --espaco-1: 0.25rem;
@@ -65,11 +71,11 @@ h2 { font-size: var(--texto-h2); }
 h3 { font-size: var(--texto-h3); }
 
 a {
-  color: var(--cor-primaria);
+  color: var(--cor-destaque);
 }
 
-/* Largura de leitura: o texto de cabeçalho, conteúdo e rodapé alinha em 60rem.
-   Os fundos de cabeçalho e rodapé ocupam a tela toda. */
+/* Largura de leitura: cabeçalho, conteúdo, rodapé e barra alinham em 60rem.
+   Os fundos de cabeçalho, barra e rodapé ocupam a tela toda. */
 header,
 footer {
   padding-block: var(--espaco-4);
@@ -82,14 +88,23 @@ main {
   padding: var(--espaco-3);
 }
 
-/* Cabeçalho e menu */
-header {
-  color: var(--cor-superficie);
-  background: var(--cor-primaria);
+/* Link de pular: barra fina no topo, alinhada ao conteúdo, sempre visível */
+.pular {
+  display: block;
+  padding-block: var(--espaco-2);
+  padding-inline: max(var(--espaco-3), calc((100% - 60rem) / 2));
+  background: var(--cor-barra);
 }
 
-header a {
-  color: inherit;
+/* O anel fica dentro da barra, sem ser cortado pela borda da janela */
+.pular:focus-visible {
+  outline-offset: -3px;
+}
+
+/* Cabeçalho e menu */
+header {
+  color: var(--cor-texto);
+  background: var(--cor-cabecalho);
 }
 
 header h1 {
@@ -114,8 +129,7 @@ section {
 
 h2 {
   padding-block-end: var(--espaco-1);
-  color: var(--cor-primaria-escura);
-  border-block-end: 2px solid var(--cor-primaria);
+  border-block-end: 2px solid var(--cor-destaque);
 }
 
 /* O destaque é sempre a primeira seção do conteúdo (contrato do HTML) */
@@ -165,12 +179,12 @@ td {
 }
 
 thead th {
-  color: var(--cor-superficie);
+  color: var(--cor-texto);
   background: var(--cor-primaria);
 }
 
 tbody tr:nth-child(even) {
-  background: var(--cor-fundo);
+  background: var(--cor-superficie-alta);
 }
 
 /* Formulário */
@@ -188,7 +202,7 @@ input {
   padding: var(--espaco-2) var(--espaco-3);
   font: inherit;
   color: inherit;
-  background: var(--cor-superficie);
+  background: var(--cor-fundo);
   border: var(--borda) solid var(--cor-borda-campo);
   border-radius: var(--raio);
 }
@@ -200,52 +214,40 @@ button {
   padding: var(--espaco-2) var(--espaco-4);
   font: inherit;
   font-weight: 600;
-  color: var(--cor-superficie);
-  background: var(--cor-primaria);
+  color: var(--cor-fundo);
+  background: var(--cor-destaque);
   border: 0;
   border-radius: var(--raio);
   cursor: pointer;
+  transition: background-color var(--duracao) var(--curva);
 }
 
 /* Rodapé */
 footer {
-  color: var(--cor-superficie);
-  background: var(--cor-texto);
+  color: var(--cor-texto-suave);
+  background: var(--cor-barra);
 }
 
 footer p {
   margin: 0;
 }
 
-/* Estados (T02, passo 4) */
+/* Estados */
 
-/* Foco: nunca removido. No cabeçalho violeta, o anel muda para branco */
+/* Foco: nunca removido. O amarelo contrasta com o fundo, o cabeçalho e os cartões */
 :focus-visible {
-  outline: 3px solid var(--cor-primaria);
+  outline: 3px solid var(--cor-destaque);
   outline-offset: 2px;
-}
-
-header :focus-visible {
-  outline-color: var(--cor-superficie);
 }
 
 /* Link: no hover, o sublinhado engrossa (sinal que não depende de cor) */
 a:hover {
-  color: var(--cor-primaria-escura);
+  color: var(--cor-destaque-claro);
   text-decoration-thickness: 2px;
 }
 
-header a:hover {
-  color: inherit;
-}
-
-/* Botão */
-button {
-  transition: background-color var(--duracao) var(--curva);
-}
-
 button:not(:disabled):hover {
-  background: var(--cor-primaria-escura);
+  background: var(--cor-destaque-claro);
 }
 
 button:not(:disabled):active {
@@ -258,9 +260,8 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* Campo */
 input:disabled {
-  background: var(--cor-fundo);
+  background: var(--cor-superficie);
   border-style: dashed;
   cursor: not-allowed;
 }
@@ -270,7 +271,7 @@ input:user-invalid {
   border-color: var(--cor-erro);
 }
 
-/* Pseudo-elementos e medida de leitura (T02, passo 5) */
+/* Pseudo-elementos e medida de leitura */
 
 /* ::marker pinta o marcador da lista do destaque, sem gerar conteúdo */
 main > section:first-of-type li::marker {
@@ -279,8 +280,8 @@ main > section:first-of-type li::marker {
 
 /* ::selection mantém o texto selecionado legível na paleta do projeto */
 ::selection {
-  color: var(--cor-superficie);
-  background: var(--cor-primaria-escura);
+  color: var(--cor-fundo);
+  background: var(--cor-destaque);
 }
 
 /* Medida de leitura em caracteres, independente do tamanho da fonte */
