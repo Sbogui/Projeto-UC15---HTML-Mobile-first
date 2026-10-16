@@ -36,3 +36,11 @@ Registro das decisões técnicas e de produto da Copa Senac Hackathon. Cada entr
 - **Melhoria progressiva (T07):** o JavaScript vai interceptar o envio, impedir o recarregamento e escrever a mensagem de resultado em `<p role="status">`. Sem JavaScript, o formulário continua funcionando como no piso.
 - **Por quê:** a base precisa funcionar para qualquer navegador, e o JavaScript acrescenta conforto sem ser condição para usar.
 - **Limite conhecido:** não há servidor. O método `get` coloca o e-mail na URL, o que só é aceitável como demonstração local, sem dados reais.
+
+## D07 — Paleta e tipografia
+
+- **Decisão:** paleta violeta e verde (opção B, entre três avaliadas), fontes do sistema (`system-ui` e alternativas) e escala em `rem` a partir de 16px: 0,875 (apoio), 1 (texto), 1,25 (h3), 1,5 (h2) e 2 (h1). Tudo declarado como custom properties em `:root`, em `prototipo/assets/styles.css`.
+- **Contraste (fórmula da WCAG):** texto sobre o fundo 15,9; texto suave 8,0; primária 6,4; branco sobre a primária 6,8; destaque verde 4,8; erro 6,1; borda de campo 5,0. O mínimo é 4,5 para texto e 3 para bordas de campo.
+- **Por quê:** o azul e o laranja ficaram de fora para não imitar a identidade do Senac (README). As fontes do sistema dispensam arquivos externos, funcionam offline e não custam requisição. O `rem` acompanha a fonte configurada pela pessoa.
+- **Como verificar:** DevTools, seletor de cor de uma regra (mostra a razão de contraste), e troca de um token em `:root` para ver o efeito em toda a página.
+- **Fora:** modo escuro (previsto, se couber, depois do T04) e fontes externas.
