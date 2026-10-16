@@ -101,11 +101,11 @@ sem alterar a ordem semântica para obter composição visual. Relaciona A7–A8
 
 ### T04 — Aplicar linguagem visual e movimento acessível
 
-- [ ] Definir cores em formatos adequados e verificar contraste dos estados.
-- [ ] Usar gradiente como apresentação, nunca como única fonte de informação.
-- [ ] Aplicar `transform` sem supor mudança no fluxo do documento.
-- [ ] Usar `transition`/`animation` com propósito e duração justificável.
-- [ ] Respeitar `prefers-reduced-motion` e oferecer estado final compreensível.
+- [x] Definir cores em formatos adequados e verificar contraste dos estados.
+- [x] Usar gradiente como apresentação, nunca como única fonte de informação.
+- [x] Aplicar `transform` sem supor mudança no fluxo do documento.
+- [x] Usar `transition`/`animation` com propósito e duração justificável.
+- [x] Respeitar `prefers-reduced-motion` e oferecer estado final compreensível.
 
 **Aceite:** nenhum dado depende apenas de cor ou movimento; foco não é removido e a
 interface continua utilizável com movimento reduzido. Relaciona A9–A10.
