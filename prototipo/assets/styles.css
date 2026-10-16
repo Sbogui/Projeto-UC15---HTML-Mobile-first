@@ -48,6 +48,11 @@
   :root {
     --duracao: 0ms;
   }
+
+  button:hover,
+  button:active {
+    transform: none;
+  }
 }
 
 /* Base herdável */
@@ -104,7 +109,11 @@ main {
 /* Cabeçalho e menu */
 header {
   color: var(--cor-texto);
-  background: var(--cor-cabecalho);
+  background: linear-gradient(
+  135deg,
+  var(--cor-cabecalho),
+  var(--cor-primaria)
+);
 }
 
 header h1 {
@@ -226,7 +235,9 @@ button {
   border: 0;
   border-radius: var(--raio);
   cursor: pointer;
-  transition: background-color var(--duracao) var(--curva);
+  transition:
+    background-color var(--duracao) var(--curva),
+    transform var(--duracao) var(--curva);
 }
 
 /* Rodapé */
@@ -255,6 +266,7 @@ a:hover {
 
 button:not(:disabled):hover {
   background: var(--cor-destaque-claro);
+  transform: translateY(-1px);
 }
 
 button:not(:disabled):active {
