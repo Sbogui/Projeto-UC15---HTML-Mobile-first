@@ -90,11 +90,11 @@ estados normal, hover, foco, ativo, inválido e desabilitado. Relaciona A4–A6.
 
 ### T03 — Montar layouts com Flexbox e Grid
 
-- [ ] Usar Flexbox em um componente unidimensional com quebra quando necessário.
-- [ ] Usar Grid na composição bidimensional principal ou em seção equivalente.
-- [ ] Evitar larguras rígidas que gerem overflow da página.
-- [ ] Testar conteúdo curto, longo, vazio e repetido.
-- [ ] Manter ordem visual compatível com leitura e foco.
+- [x] Usar Flexbox em um componente unidimensional com quebra quando necessário.
+- [x] Usar Grid na composição bidimensional principal ou em seção equivalente.
+- [x] Evitar larguras rígidas que gerem overflow da página.
+- [x] Testar conteúdo curto, longo, vazio e repetido.
+- [x] Manter ordem visual compatível com leitura e foco.
 
 **Aceite:** layout funciona a partir de 320 CSS px, sem rolagem horizontal da página e
 sem alterar a ordem semântica para obter composição visual. Relaciona A7–A8.
