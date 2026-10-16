@@ -68,11 +68,11 @@ decisão sem arquivos secretos ou dependências geradas.
 
 ### T01 — Modelar conteúdo, HTML semântico e viewport
 
-- [ ] Criar landmarks e hierarquia de títulos coerentes.
-- [ ] Usar elementos nativos para links, botões, listas, tabelas e formulários.
-- [ ] Configurar `meta viewport` sem bloquear zoom.
-- [ ] Entregar conteúdo e tarefas essenciais antes de CSS e JavaScript.
-- [ ] Registrar fallback e melhoria progressiva de ao menos um recurso.
+- [x] Criar landmarks e hierarquia de títulos coerentes.
+- [x] Usar elementos nativos para links, botões, listas, tabelas e formulários.
+- [x] Configurar `meta viewport` sem bloquear zoom.
+- [x] Entregar conteúdo e tarefas essenciais antes de CSS e JavaScript.
+- [x] Registrar fallback e melhoria progressiva de ao menos um recurso.
 
 **Aceite:** conteúdo compreensível sem CSS, navegação acionável sem JavaScript e zoom
 permitido. Relaciona A1–A3.
