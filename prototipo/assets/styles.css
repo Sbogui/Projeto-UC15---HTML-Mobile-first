@@ -1,0 +1,218 @@
+/* Sistema CSS da Copa Senac Hackathon — tokens, base e componentes (T02) */
+
+:root {
+  /* Cor (paleta B: violeta e verde) */
+  --cor-texto: #1A1A2E;
+  --cor-texto-suave: #4A4A63;
+  --cor-fundo: #F7F6FB;
+  --cor-superficie: #FFFFFF;
+  --cor-primaria: #5B3FD1;
+  --cor-primaria-escura: #4A32B0;
+  --cor-destaque: #0E7C5A;
+  --cor-borda: #D9D6E8;
+  --cor-borda-campo: #6B6885;
+  --cor-erro: #B3261E;
+
+  /* Espaço (rem: acompanha a fonte do usuário) */
+  --espaco-1: 0.25rem;
+  --espaco-2: 0.5rem;
+  --espaco-3: 1rem;
+  --espaco-4: 1.5rem;
+  --espaco-5: 2rem;
+
+  /* Tipografia (fontes do sistema, sem arquivos externos) */
+  --fonte-base: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --texto-apoio: 0.875rem;
+  --texto-base: 1rem;
+  --texto-h3: 1.25rem;
+  --texto-h2: 1.5rem;
+  --texto-h1: 2rem;
+  --linha-base: 1.5;
+
+  /* Borda */
+  --raio: 0.5rem;
+  --borda: 1px;
+
+  /* Movimento */
+  --duracao: 150ms;
+  --curva: ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duracao: 0ms;
+  }
+}
+
+/* Base herdável */
+body {
+  margin: 0;
+  font-family: var(--fonte-base);
+  font-size: var(--texto-base);
+  line-height: var(--linha-base);
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+}
+
+h1 { font-size: var(--texto-h1); }
+h2 { font-size: var(--texto-h2); }
+h3 { font-size: var(--texto-h3); }
+
+a {
+  color: var(--cor-primaria);
+}
+
+/* Largura de leitura: o texto de cabeçalho, conteúdo e rodapé alinha em 60rem.
+   Os fundos de cabeçalho e rodapé ocupam a tela toda. */
+header,
+footer {
+  padding-block: var(--espaco-4);
+  padding-inline: max(var(--espaco-3), calc((100% - 60rem) / 2));
+}
+
+main {
+  max-width: 60rem;
+  margin-inline: auto;
+  padding: var(--espaco-3);
+}
+
+/* Cabeçalho e menu */
+header {
+  color: var(--cor-superficie);
+  background: var(--cor-primaria);
+}
+
+header a {
+  color: inherit;
+}
+
+header h1 {
+  margin: 0 0 var(--espaco-3);
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline;
+  margin-inline-end: var(--espaco-3);
+}
+
+/* Seções */
+section {
+  margin-block: var(--espaco-5);
+}
+
+h2 {
+  padding-block-end: var(--espaco-1);
+  color: var(--cor-primaria-escura);
+  border-block-end: 2px solid var(--cor-primaria);
+}
+
+/* O destaque é sempre a primeira seção do conteúdo (contrato do HTML) */
+main > section:first-of-type {
+  padding: var(--espaco-3) var(--espaco-4);
+  background: var(--cor-superficie);
+  border-inline-start: 0.35rem solid var(--cor-destaque);
+  border-radius: var(--raio);
+}
+
+/* Notícias */
+article {
+  margin-block: var(--espaco-3);
+  padding: var(--espaco-3) var(--espaco-4);
+  background: var(--cor-superficie);
+  border: var(--borda) solid var(--cor-borda);
+  border-radius: var(--raio);
+}
+
+article h3 {
+  margin-block-start: 0;
+}
+
+time {
+  font-size: var(--texto-apoio);
+  color: var(--cor-texto-suave);
+}
+
+/* Tabelas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--cor-superficie);
+}
+
+caption {
+  padding-block: var(--espaco-2);
+  font-weight: 700;
+  text-align: start;
+}
+
+th,
+td {
+  padding: var(--espaco-2) var(--espaco-3);
+  text-align: start;
+  border-block-end: var(--borda) solid var(--cor-borda);
+}
+
+thead th {
+  color: var(--cor-superficie);
+  background: var(--cor-primaria);
+}
+
+tbody tr:nth-child(even) {
+  background: var(--cor-fundo);
+}
+
+/* Formulário */
+label {
+  display: block;
+  margin-block: var(--espaco-3) var(--espaco-1);
+  font-weight: 600;
+}
+
+input {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 24rem;
+  min-height: 2.75rem;
+  padding: var(--espaco-2) var(--espaco-3);
+  font: inherit;
+  color: inherit;
+  background: var(--cor-superficie);
+  border: var(--borda) solid var(--cor-borda-campo);
+  border-radius: var(--raio);
+}
+
+button {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  margin-block-start: var(--espaco-3);
+  padding: var(--espaco-2) var(--espaco-4);
+  font: inherit;
+  font-weight: 600;
+  color: var(--cor-superficie);
+  background: var(--cor-primaria);
+  border: 0;
+  border-radius: var(--raio);
+  cursor: pointer;
+}
+
+/* Rodapé */
+footer {
+  color: var(--cor-superficie);
+  background: var(--cor-texto);
+}
+
+footer p {
+  margin: 0;
+}
