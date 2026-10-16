@@ -79,11 +79,11 @@ permitido. Relaciona A1–A3.
 
 ### T02 — Construir o sistema CSS
 
-- [ ] Definir tokens de cor, espaço, tipografia, borda e movimento com custom properties.
-- [ ] Demonstrar cascata, herança e especificidade sem `!important` global.
-- [ ] Usar seletores complexos, pseudo-classes e pseudo-elementos com função clara.
-- [ ] Combinar unidades relativas e absolutas de acordo com o requisito.
-- [ ] Preservar foco, contraste, zoom e conteúdo em estados interativos.
+- [x] Definir tokens de cor, espaço, tipografia, borda e movimento com custom properties.
+- [x] Demonstrar cascata, herança e especificidade sem `!important` global.
+- [x] Usar seletores complexos, pseudo-classes e pseudo-elementos com função clara.
+- [x] Combinar unidades relativas e absolutas de acordo com o requisito.
+- [x] Preservar foco, contraste, zoom e conteúdo em estados interativos.
 
 **Aceite:** `DECISOES.md` aponta a origem de uma regra, justifica unidades e mostra os
 estados normal, hover, foco, ativo, inválido e desabilitado. Relaciona A4–A6.
