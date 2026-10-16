@@ -111,16 +111,23 @@ header h1 {
   margin: 0 0 var(--espaco-3);
 }
 
+
+/* T03 — Menu flexível com quebra de linha */
 nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espaco-2);
+
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 nav li {
-  display: inline;
-  margin-inline-end: var(--espaco-3);
+  margin: 0;
 }
+
 
 /* Seções */
 section {
@@ -287,4 +294,30 @@ main > section:first-of-type li::marker {
 /* Medida de leitura em caracteres, independente do tamanho da fonte */
 p {
   max-width: 65ch;
+}
+
+
+/* T03 — Grade responsiva de notícias */
+#noticias {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 16rem), 1fr)
+  );
+  gap: var(--espaco-3);
+}
+
+#noticias > h2 {
+  grid-column: 1 / -1;
+}
+
+#noticias > article {
+  min-width: 0;
+  margin: 0;
+}
+
+/* Evita que palavras ou endereços extensos estourem os cartões */
+#noticias > article h3,
+#noticias > article p {
+  overflow-wrap: anywhere;
 }
