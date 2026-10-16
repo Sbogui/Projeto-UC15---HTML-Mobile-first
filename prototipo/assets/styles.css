@@ -216,3 +216,56 @@ footer {
 footer p {
   margin: 0;
 }
+
+/* Estados (T02, passo 4) */
+
+/* Foco: nunca removido. No cabeçalho violeta, o anel muda para branco */
+:focus-visible {
+  outline: 3px solid var(--cor-primaria);
+  outline-offset: 2px;
+}
+
+header :focus-visible {
+  outline-color: var(--cor-superficie);
+}
+
+/* Link: no hover, o sublinhado engrossa (sinal que não depende de cor) */
+a:hover {
+  color: var(--cor-primaria-escura);
+  text-decoration-thickness: 2px;
+}
+
+header a:hover {
+  color: inherit;
+}
+
+/* Botão */
+button {
+  transition: background-color var(--duracao) var(--curva);
+}
+
+button:not(:disabled):hover {
+  background: var(--cor-primaria-escura);
+}
+
+button:not(:disabled):active {
+  transform: translateY(1px);
+}
+
+button:disabled {
+  color: var(--cor-texto-suave);
+  background: var(--cor-borda);
+  cursor: not-allowed;
+}
+
+/* Campo */
+input:disabled {
+  background: var(--cor-fundo);
+  border-style: dashed;
+  cursor: not-allowed;
+}
+
+input:user-invalid {
+  border-width: 3px;
+  border-color: var(--cor-erro);
+}
