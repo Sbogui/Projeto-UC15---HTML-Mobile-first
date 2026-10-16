@@ -269,3 +269,21 @@ input:user-invalid {
   border-width: 3px;
   border-color: var(--cor-erro);
 }
+
+/* Pseudo-elementos e medida de leitura (T02, passo 5) */
+
+/* ::marker pinta o marcador da lista do destaque, sem gerar conteúdo */
+main > section:first-of-type li::marker {
+  color: var(--cor-destaque);
+}
+
+/* ::selection mantém o texto selecionado legível na paleta do projeto */
+::selection {
+  color: var(--cor-superficie);
+  background: var(--cor-primaria-escura);
+}
+
+/* Medida de leitura em caracteres, independente do tamanho da fonte */
+p {
+  max-width: 65ch;
+}
