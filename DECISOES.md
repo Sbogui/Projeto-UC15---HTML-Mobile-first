@@ -59,3 +59,24 @@ Registro das decisões técnicas e de produto da Copa Senac Hackathon. Cada entr
 - **Origem de uma regra:** o anel de foco do cabeçalho. A regra base `:focus-visible` (especificidade 0,1,0) usa a cor primária, que some no cabeçalho violeta. A regra `header :focus-visible` (0,1,1) troca só a cor do anel para branco e vence pela especificidade, sem `!important`. No DevTools, a regra base aparece riscada.
 - **Por quê:** o foco nunca é removido, nenhuma informação depende só de hover, e `:user-invalid` evita pintar o formulário de erro antes da primeira tentativa.
 - **Limite conhecido:** o texto de uma mensagem de erro vem do balão do navegador e, no T07, da região `role="status"`. Por enquanto, o estado inválido só muda a aparência do campo.
+
+## D09 — Unidades e seletores
+
+| Uso | Unidade | Por quê |
+|---|---|---|
+| Fonte, espaços, alvos (2,75rem) e raio de borda | `rem` | Acompanha a fonte configurada pela pessoa. Zoom e preferência de fonte ampliam o layout junto |
+| Largura de leitura dos parágrafos | `ch` | Mede em caracteres (65), independente do tamanho da fonte |
+| Largura do conteúdo | `rem` (60rem) e `%` | O limite acompanha a fonte, e o `%` deixa o conteúdo fluido abaixo do limite |
+| Bordas e anel de foco (1px, 2px e 3px) | `px` | Traços devem manter espessura fixa e nítida, e não crescem com a fonte |
+| Altura de linha | número sem unidade (1,5 e 1,25) | Herda proporcional ao tamanho de cada elemento. Uma unidade fixa quebraria nos títulos |
+| Movimento | `ms` | Duração é tempo, não distância. Zerada em `prefers-reduced-motion` |
+| Alinhamento do cabeçalho com o conteúdo | `max(1rem, calc((100% - 60rem) / 2))` | Combina um mínimo fixo com uma medida fluida |
+
+**Seletores complexos e pseudo-elementos, com a função de cada um:**
+
+- `main > section:first-of-type`: o destaque é sempre a primeira seção do conteúdo (contrato do HTML). Se a ordem mudar, o estilo muda junto. Quando houver variações, passa a usar classe.
+- `tbody tr:nth-child(even)`: zebra por posição, só apresentação.
+- `button:not(:disabled):hover`: só controles ativos reagem ao ponteiro.
+- `::marker`: cor do marcador da lista do destaque. Não gera conteúdo.
+- `::selection`: legibilidade do texto selecionado, branco sobre `#4A32B0` (contraste 8,8).
+- **Regra comum:** nenhum pseudo-elemento usa `content`. Se não carregar, nada se perde.
