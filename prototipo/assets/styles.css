@@ -1,4 +1,4 @@
-/* Sistema CSS da Copa Senac Hackathon — tema escuro, roxo e amarelo (T02) */
+﻿/* Sistema CSS da Copa Senac Hackathon — tema escuro, roxo e amarelo (T02) */
 
 :root {
   /* Faz os controles nativos (rolagem, campos) acompanharem o tema escuro */
@@ -311,26 +311,17 @@ p {
 
 /* T03 — Grade responsiva de notícias */
 #noticias {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(min(100%, 16rem), 1fr)
-  );
-  gap: var(--espaco-3);
+  display: block;
 }
 
-#noticias > h2 {
-  grid-column: 1 / -1;
-}
-
-#noticias > article {
+.noticias-grid > article {
   min-width: 0;
   margin: 0;
 }
 
 /* Evita que palavras ou endereços extensos estourem os cartões */
-#noticias > article h3,
-#noticias > article p {
+.noticias-grid > article h3,
+.noticias-grid > article p {
   overflow-wrap: anywhere;
 }
 
@@ -452,4 +443,84 @@ footer {
 .tabela-responsiva th,
 .tabela-responsiva td {
   overflow-wrap: anywhere;
+}
+/* T06 — Bootstrap 5.3.8: tema local e componentes com escopo */
+:root {
+  --bs-body-color: var(--cor-texto);
+  --bs-body-bg: var(--cor-fundo);
+  --bs-link-color: var(--cor-destaque);
+  --bs-link-hover-color: var(--cor-destaque-claro);
+}
+
+.btn.btn-copa {
+  --bs-btn-color: #14101F;
+  --bs-btn-bg: var(--cor-destaque);
+  --bs-btn-border-color: var(--cor-destaque);
+  --bs-btn-hover-color: #14101F;
+  --bs-btn-hover-bg: var(--cor-destaque-claro);
+  --bs-btn-hover-border-color: var(--cor-destaque-claro);
+  --bs-btn-active-color: #14101F;
+  --bs-btn-active-bg: var(--cor-destaque-claro);
+  --bs-btn-active-border-color: var(--cor-destaque-claro);
+  --bs-btn-focus-shadow-rgb: 255, 200, 61;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  margin-block-start: 0;
+}
+
+button.btn.btn-copa:not(:disabled):hover {
+  background: var(--cor-destaque-claro);
+}
+
+.menu-principal {
+  --bs-offcanvas-color: var(--cor-texto);
+  --bs-offcanvas-bg: var(--cor-superficie);
+}
+
+.menu-principal .offcanvas-body ul {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--espaco-2);
+  padding-left: 0;
+  list-style: none;
+}
+
+.menu-principal .offcanvas-body li {
+  margin: 0;
+}
+
+.menu-principal .offcanvas-header h2 {
+  margin: 0;
+  color: var(--cor-texto);
+}
+
+.modal-content {
+  --bs-modal-color: var(--cor-texto);
+  --bs-modal-bg: var(--cor-superficie);
+  --bs-modal-border-color: var(--cor-borda);
+}
+
+.modal-header,
+.modal-footer {
+  border-color: var(--cor-borda);
+}
+
+.offcanvas .btn-close,
+.modal .btn-close {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  margin: 0;
+}
+
+@media (min-width: 992px) {
+  .menu-principal .offcanvas-header {
+    display: none;
+  }
+
+  .menu-principal .offcanvas-body ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
 }
