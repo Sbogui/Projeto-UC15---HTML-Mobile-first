@@ -1,17 +1,34 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Copa Senac Hackathon</title>
+  <link rel="stylesheet" href="assets/vendor/bootstrap-5.3.8/bootstrap.min.css">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
   <a class="pular" href="#conteudo">Ir para o conteúdo</a>
 
   <header>
-    <h1>Copa Senac Hackathon</h1>
-    <nav aria-label="Principal">
+  <h1>Copa Senac Hackathon</h1>
+
+  <button class="btn btn-copa d-lg-none" type="button"
+          data-bs-toggle="offcanvas" data-bs-target="#menuPrincipal"
+          aria-controls="menuPrincipal" aria-label="Abrir menu de navegação">
+    Menu
+  </button>
+
+  <nav class="offcanvas-lg offcanvas-end menu-principal"
+       tabindex="-1" id="menuPrincipal"
+       aria-labelledby="titulo-menu-principal" data-bs-theme="dark">
+    <div class="offcanvas-header">
+      <h2 class="offcanvas-title" id="titulo-menu-principal">Navegação principal</h2>
+      <button type="button" class="btn-close btn-close-white"
+              data-bs-dismiss="offcanvas" data-bs-target="#menuPrincipal"
+              aria-label="Fechar menu"></button>
+    </div>
+    <div class="offcanvas-body">
       <ul>
         <li><a href="#destaque">Destaque</a></li>
         <li><a href="#noticias">Notícias</a></li>
@@ -19,8 +36,9 @@
         <li><a href="#placar">Placar</a></li>
         <li><a href="#novidades">Novidades</a></li>
       </ul>
-    </nav>
-  </header>
+    </div>
+  </nav>
+</header>
 
   <main id="conteudo">
     <section id="destaque" aria-labelledby="titulo-destaque">
@@ -30,33 +48,41 @@
         <li><a href="#placar">Ver o placar geral</a></li>
         <li><a href="#cronograma">Ver o cronograma das rodadas</a></li>
       </ul>
+      <button type="button" class="btn btn-copa"
+              data-bs-toggle="modal" data-bs-target="#modalRegras">
+        Como funciona a Copa?
+      </button>
     </section>
 
     <section id="noticias" aria-labelledby="titulo-noticias">
       <h2 id="titulo-noticias">Notícias</h2>
-      <article>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 noticias-grid">
+      <article class="col">
         <h3>Rodada 3 termina com recorde de pontuação</h3>
         <p><time datetime="2026-10-12">12/10/2026</time></p>
         <p>A equipe Bit Bandits marcou 92 pontos na rodada Interface mobile-first, a maior pontuação em uma única rodada até agora.</p>
       </article>
-      <article>
+      <article class="col">
         <h3>Desafio da rodada 4 é divulgado</h3>
         <p><time datetime="2026-10-14">14/10/2026</time></p>
         <p>As equipes vão receber um aplicativo com falhas para encontrar e corrigir. A rodada Segurança e testes acontece em 24/10/2026.</p>
       </article>
-      <article>
+      <article class="col">
         <h3>Pitch final terá cinco minutos por equipe</h3>
         <p><time datetime="2026-10-15">15/10/2026</time></p>
         <p>Na rodada 5, em 07/11/2026, cada equipe apresenta o projeto em cinco minutos e responde a perguntas da banca.</p>
       </article>
+          </div>
     </section>
 
     <section id="cronograma" aria-labelledby="titulo-cronograma">
       <h2 id="titulo-cronograma">Cronograma das rodadas</h2>
-      <table>
-        <div class="tabela-responsiva" role="region"
-              aria-label="Cronograma das rodadas" tabindex="0">
-        <caption>Rodadas da Copa Senac Hackathon</caption>
+      <div class="tabela-responsiva"
+           role="region"
+           aria-label="Cronograma das rodadas"
+           tabindex="0">
+        <table>
+          <caption>Rodadas da Copa Senac Hackathon</caption>
         <thead>
           <tr>
             <th scope="col">Rodada</th>
@@ -72,15 +98,16 @@
           <tr><th scope="row">4</th><td>Segurança e testes</td><td><time datetime="2026-10-24">24/10/2026</time></td><td>Próxima</td></tr>
           <tr><th scope="row">5</th><td>Pitch final</td><td><time datetime="2026-11-07">07/11/2026</time></td><td>Próxima</td></tr>
         </tbody>
-      </div>
       </table>
+      </div>
     </section>
 
     <section id="placar" aria-labelledby="titulo-placar">
       <h2 id="titulo-placar">Placar geral</h2>
       <p>O total é a soma das rodadas. O desempate é feito pela maior pontuação em uma única rodada.</p>
-      <table>
-        <caption>Placar geral após a rodada 3</caption>
+      <div class="tabela-responsiva" role="region" aria-label="Placar geral" tabindex="0">
+        <table>
+          <caption>Placar geral após a rodada 3</caption>
         <thead>
           <tr>
             <th scope="col">Posição</th>
@@ -102,6 +129,7 @@
           <tr><td>8</td><th scope="row">Byte Bagual</th><td>55</td><td>62</td><td>66</td><td>183</td></tr>
         </tbody>
       </table>
+      </div>
     </section>
 
     <section id="novidades" aria-labelledby="titulo-novidades">
@@ -119,5 +147,27 @@
   <footer>
     <p>Conteúdo fictício. Projeto acadêmico da UC15 — Desenvolvimento Web Mobile.</p>
   </footer>
+  <div class="modal fade" id="modalRegras" tabindex="-1"
+       aria-labelledby="titulo-modal-regras"
+       aria-describedby="descricao-modal-regras" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title fs-5" id="titulo-modal-regras">Como funciona a Copa?</h2>
+          <button type="button" class="btn-close btn-close-white"
+                  data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body" id="descricao-modal-regras">
+          <p>As equipes acumulam pontos a cada rodada. O placar geral reúne os resultados, e o cronograma informa os próximos desafios.</p>
+          <p>A próxima rodada é Segurança e testes, marcada para 24/10/2026.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-copa" data-bs-dismiss="modal">Entendi</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/vendor/bootstrap-5.3.8/bootstrap.bundle.min.js"></script>
 </body>
 </html>

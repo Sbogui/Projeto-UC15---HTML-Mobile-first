@@ -1,4 +1,4 @@
-# Decisões do projeto
+﻿# Decisões do projeto
 
 Registro das decisões técnicas e de produto da Copa Senac Hackathon. Cada entrada diz o que foi decidido, por que e o que ficou de fora.
 
@@ -95,3 +95,13 @@ Registro das decisões técnicas e de produto da Copa Senac Hackathon. Cada entr
 - **O que muda nas decisões anteriores:** a paleta violeta e verde do D07 deixa de valer (escala tipográfica, fontes do sistema e `rem` continuam). No D08, o anel de foco único em amarelo dispensa a regra `header :focus-visible` (o amarelo contrasta com o cabeçalho roxo), que foi removida. A origem de uma regra passa a ser a do D10.
 - **Por quê:** preferência do autor por um visual escuro, com o amarelo concentrando a atenção nas ações. O azul e o laranja continuam de fora para não imitar a identidade do Senac.
 - **Fora:** alternância entre tema claro e escuro (`prefers-color-scheme`) ou controle manual. Fica como possibilidade futura.
+
+## D12 — Bootstrap 5.3.8 com customização controlada
+
+- **Decisão:** usar Bootstrap 5.3.8 com CSS e bundle JavaScript armazenados em `prototipo/assets/vendor/bootstrap-5.3.8/`. A licença MIT acompanha os arquivos em `LICENSE`. A versão é fixa para manter o comportamento previsível.
+- **Uso:** grid de notícias com `row`, `row-cols-*` e `g-3`; breakpoint `lg` para a navegação responsiva; offcanvas para o menu mobile; modal para informações da Copa.
+- **Tema:** as cores do projeto continuam definidas pelos tokens CSS próprios. As customizações de botão, menu e modal ficam em seletores e variáveis específicas, sem editar os arquivos originais do Bootstrap nem sobrescrever globalmente seus componentes.
+- **Comparação com a solução anterior:** a grade de notícias era feita com CSS Grid e `auto-fit`; agora as colunas usam as classes responsivas do Bootstrap. O CSS próprio continua responsável pela identidade visual, tabelas responsivas, tipografia e regras específicas do conteúdo.
+- **Custos e limitações:** os arquivos locais adicionam aproximadamente 232 KB de CSS e 80 KB de JavaScript minificados ao repositório. A hospedagem local permite carregar os componentes sem depender de CDN durante a execução. A equipe passa a manter a versão e a licença desses arquivos. O bundle Bootstrap 5 não exige jQuery.
+- **Acessibilidade a validar:** testar navegação por teclado, foco, fechamento do menu e do modal, tecla `Esc`, leitor de tela e larguras próximas ao breakpoint de 992 px.
+- **Referências:** https://getbootstrap.com/docs/5.3/components/offcanvas/ ; https://getbootstrap.com/docs/5.3/components/modal/ ; https://getbootstrap.com/docs/5.3/layout/grid/
